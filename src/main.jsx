@@ -3,11 +3,22 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ErrorPage from './Pages/ErrorPage.jsx';
+import LandingPage from './Pages/LandingPage.jsx';
+import Dashboard from './Pages/Dashboard.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <LandingPage /> },
+      {
+        path: '/:id/dashboard',
+        element: <Dashboard />,
+      },
+    ],
   },
 ]);
 
