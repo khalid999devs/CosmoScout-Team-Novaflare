@@ -10,11 +10,11 @@ const ProgressBar = ({ fromImg, toImg, day }) => {
         gridTemplateColumns: '1fr 1.5fr 1.3fr .7fr',
       }}
     >
-      <Search classes={'h-full'} width={'full'} />
+      <Search height='full' width={'full'} />
       <ActionButtons
         text={"Let's prepare the itinerary"}
         hoverable={false}
-        pr={'14'}
+        pr={'pr-14'}
         classes='w-full'
       />
       <FromTo fromImg={fromImg} toImg={toImg} />

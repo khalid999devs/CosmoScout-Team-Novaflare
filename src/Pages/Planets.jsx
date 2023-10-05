@@ -12,7 +12,7 @@ const Planets = () => {
         day={'1'}
       />
 
-      <div className='pt-16 px-4 lg:px-20 w-fit flex gap-3.5 flex-wrap flex-row justify-center items-center'>
+      <div className='m-auto max-w-[1024px] pt-16 px-4 lg:px-20 w-fit flex gap-3.5 flex-wrap flex-row justify-center items-center'>
         <Tile name={'Mars'} id={'mars'} />
         <Tile />
         <Tile />

@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Search = ({ classes, width }) => {
+const Search = ({ classes, width, height = 'max' }) => {
   return (
     <div
       className={
         `w-${
           width || 'min'
-        } pl-2 h-max transition-transform bg-primary-dashBoard bg-opacity-60 backdrop-filter backdrop-blur-lg flex justify-center items-center` +
+        } pl-2 h-${height} transition-transform bg-primary-dashBoard bg-opacity-60 backdrop-filter backdrop-blur-lg ` +
         ` ${classes}`
       }
     >

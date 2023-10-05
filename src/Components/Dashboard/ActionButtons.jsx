@@ -28,8 +28,8 @@ const ActionButtons = ({
         />
       </div>
       <div
-        className={`p-3 bg-${textBg} text-lg flex items-center pr-${
-          pr || '20'
+        className={`p-3 bg-${textBg} text-lg flex items-center ${
+          pr || 'pr-20'
         } font-medium ${textColor || ''} ${classes}`}
       >
         {text || 'Action Button'}

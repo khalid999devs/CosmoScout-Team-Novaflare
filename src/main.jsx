@@ -8,6 +8,7 @@ import LandingPage from './Pages/LandingPage.jsx';
 import Dashboard from './Pages/Dashboard.jsx';
 import Planets from './Pages/Planets.jsx';
 import SinglePlanet from './Pages/SinglePlanet.jsx';
+import SinglePlanetScape from './Pages/SinglePlanetScape.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/planets/:planetId',
         element: <SinglePlanet />,
+      },
+      {
+        path: '/scapes/:planetId',
+        element: <SinglePlanetScape />,
       },
     ],
   },

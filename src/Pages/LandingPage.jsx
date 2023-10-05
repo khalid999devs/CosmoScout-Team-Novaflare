@@ -9,7 +9,7 @@ import RightText from '../Components/LandingPage/RightText';
 const LandingPage = () => {
   return (
     <div className='h-screen mx-8 lg:mx-16 relative'>
-      <div className='h-screen flex items-end '>
+      <div className='h-screen flex items-end justify-center '>
         <div className='mx-16 grid place-items-end '>
           <Logo />
           <PlanetBg />

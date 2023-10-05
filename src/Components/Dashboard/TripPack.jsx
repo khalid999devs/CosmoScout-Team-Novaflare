@@ -2,7 +2,7 @@ import React from 'react';
 
 const TripPack = ({ placeName, shortDesc, Date }) => {
   return (
-    <div className='p-2 py-5 pr-5 max-w-xs w-80 flex gap-1 flex-col hover:scale-105 transition-transform bg-orange-400 bg-opacity-60 backdrop-filter backdrop-blur-lg '>
+    <div className='p-2 py-5 pr-5 max-w-xs w-80 flex gap-1 flex-col hover:scale-105 transition-transform bg-orange-300 bg-opacity-60 backdrop-filter backdrop-blur-lg '>
       <div className='flex justify-end items-end text-white flex-col text-right'>
         <h1 className='text-xl font-medium'>package</h1>
         <h1 className='text-xl font-light'>Offer</h1>
