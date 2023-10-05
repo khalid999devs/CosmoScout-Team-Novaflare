@@ -1,7 +1,7 @@
 const SolarScapes = () => {
   return (
-    <div className='flex flex-row gap-2'>
-      <div className='w-16'>
+    <div className='flex flex-row gap-2 p-2 bg-primary-main bg-opacity-60 backdrop-filter backdrop-blur-lg pl-12 pb-6'>
+      <div className='w-48 md:w-20'>
         <img src='/Home/solar.png' alt='solar' width={'100%'} />
       </div>
       <div className='pt-4 max-w-sm'>

@@ -16,9 +16,9 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className='h-screen absolute top-0 left-0 w-full flex justify-between'>
+      <div className='h-screen absolute top-0 left-0 w-full flex flex-col justify-between'>
         <div
-          className='flex flex-col justify-between h-3/6 w-full '
+          className='flex flex-col justify-between h-3/7 w-full '
           style={{ paddingBottom: '3%' }}
         >
           <LoginButton />
@@ -27,18 +27,11 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <div
-          className='flex flex-col justify-between h-3/6 w-full '
-          style={{ paddingBottom: '3%' }}
-        >
-          <LoginButton />
-          <div className='flex w-full justify-end pr-0'>
-            <RightText />
-          </div>
+        <div className='flex w-full justify-start align-top fixed left-0 bottom-0'>
+          <SolarScapes />
+          <SearchBar />
         </div>
       </div>
-      <SearchBar />
-      <SolarScapes />
     </div>
   );
 };

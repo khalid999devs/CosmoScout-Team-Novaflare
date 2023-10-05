@@ -2,7 +2,7 @@ import React from 'react';
 
 const PlanetBg = () => {
   return (
-    <div className='max-w-lg m-auto' style={{ width: '80%' }}>
+    <div className='m-auto' id='planetBg'>
       <img
         src='/Home/planetBg.png'
         alt='planet bg'

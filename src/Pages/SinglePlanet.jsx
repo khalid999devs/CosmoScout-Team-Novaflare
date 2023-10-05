@@ -1,7 +1,13 @@
-import React from 'react';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const SinglePlanet = () => {
-  return <div>Single Planet</div>;
+  const { planetId } = useParams();
+  const [planetInfo, setPlanetInfo] = useState({
+    name: 'Mars',
+  });
+
+  return <div>{planetId}</div>;
 };
 
 export default SinglePlanet;

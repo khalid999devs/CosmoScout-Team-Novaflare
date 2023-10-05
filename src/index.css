@@ -1,5 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#planetBg {
+  width: 60%;
+}
+
+@media screen and (max-width: 976px) {
+  #planetBg {
+    width: 100%;
+  }
+}
