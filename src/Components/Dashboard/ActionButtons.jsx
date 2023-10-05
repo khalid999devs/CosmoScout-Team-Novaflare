@@ -20,7 +20,7 @@ const ActionButtons = ({
         navigate('/planets');
       }}
     >
-      <div className='p-4 bg-white'>
+      <div className='p-2 md:p-4 bg-white grid place-items-center'>
         <img
           src={icon || '/Dashboard/novaflare.png'}
           alt='img'
