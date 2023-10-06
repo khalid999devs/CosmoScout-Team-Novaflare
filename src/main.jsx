@@ -9,6 +9,7 @@ import Dashboard from './Pages/Dashboard.jsx';
 import Planets from './Pages/Planets.jsx';
 import SinglePlanet from './Pages/SinglePlanet.jsx';
 import SinglePlanetScape from './Pages/SinglePlanetScape.jsx';
+import Itinerary from './Pages/Itinerary.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
       {
         path: '/scapes/:planetId',
         element: <SinglePlanetScape />,
+      },
+
+      {
+        path: '/itinerary',
+        element: <Itinerary />,
       },
     ],
   },

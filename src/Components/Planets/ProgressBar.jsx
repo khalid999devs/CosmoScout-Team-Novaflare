@@ -12,7 +12,7 @@ const ProgressBar = ({ fromImg, toImg, day }) => {
     >
       <Search height='full' width={'full'} />
       <ActionButtons
-        text={"Let's prepare the itinerary"}
+        text={'Back To Planets View'}
         hoverable={false}
         pr={'pr-14'}
         classes='w-full'

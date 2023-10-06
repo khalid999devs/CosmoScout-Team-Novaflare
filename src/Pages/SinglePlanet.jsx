@@ -6,13 +6,17 @@ import TitleButton from '../Components/SinglePlanet/TitleButton';
 import MoonsPanel from '../Components/SinglePlanet/MoonsPanel';
 import Sphere from '../Components/SinglePlanet/ControlSphere';
 import ControlSphere from '../Components/SinglePlanet/ControlSphere';
+import Spot from '../Components/SinglePlanet/Spot';
+import ConfirmPop from '../Components/SinglePlanet/ConfirmPop';
 
 const SinglePlanet = () => {
   const { planetId } = useParams();
+  const [popUp, setPopUp] = useState(false);
+  const [confirmPop, setConfirmPop] = useState(false);
 
   const [planetInfo, setPlanetInfo] = useState({
     name: 'Mars',
-    moons: [' Phobos', 'Deimos'],
+    moons: ['Phobos', 'Deimos'],
     type: 'planet',
   });
 
@@ -29,8 +33,10 @@ const SinglePlanet = () => {
         <TitleButton planetInfo={planetInfo} planetID={planetId} />
         <MoonsPanel planetInfo={planetInfo} />
 
-        <ControlSphere></ControlSphere>
+        <ControlSphere setPopUp={setPopUp}></ControlSphere>
       </div>
+      {popUp && <Spot setPopUp={setPopUp} setConfirmPop={setConfirmPop} />}
+      {confirmPop && <ConfirmPop setConfirmPop={setConfirmPop} />}
     </div>
   );
 };

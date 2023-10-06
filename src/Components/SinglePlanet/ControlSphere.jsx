@@ -4,17 +4,19 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import vertexShader from '../../Shaders/vertex.glsl';
 import fragmentShader from '../../shaders/fragment.glsl';
 import gsap from 'gsap';
-import { GrWindowsLegacy } from 'react-icons/gr';
+import { useNavigate } from 'react-router-dom';
 
-const ControlSphere = () => {
+const ControlSphere = ({ setPopUp }) => {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const animationFrameID = useRef(null);
   const popUpRef = useRef(null);
+  const navigate = useNavigate();
 
   const spots = [
     {
       name: 'Olympus Mons',
+      value: 'olympusMons',
       position: { lat: 23, lng: 120 },
       img: 'https://media.sciencephoto.com/image/r3500195/800wm',
     },
@@ -134,6 +136,7 @@ const ControlSphere = () => {
           });
 
           mark.name = spot.name;
+          mark.value = spot.value;
           mark.img = spot.img;
           mark.type = 'mark';
         });
@@ -183,7 +186,7 @@ const ControlSphere = () => {
           popUpEl.querySelector('#img').src = box.img;
 
           IsData.state = true;
-          IsData.country = box.country;
+          IsData.country = box.value;
         }
       };
 
@@ -204,6 +207,7 @@ const ControlSphere = () => {
       const clickEvent = (e) => {
         if (IsData.state) {
           console.log('clicked');
+          setPopUp(true);
           // making the click function to the specifiq point work
         }
       };
@@ -213,7 +217,9 @@ const ControlSphere = () => {
       return () => {
         cancelAnimationFrame(animationFrameID.current);
         removeEventListener('mousemove', mouseMove);
-        containerRef.current.removeEventListener('click', clickEvent);
+
+        if (containerRef.current)
+          containerRef.current.removeEventListener('click', clickEvent);
       };
     }
   }, []);
