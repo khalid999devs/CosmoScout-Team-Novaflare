@@ -1,6 +1,14 @@
 import React from 'react';
 
-const Buttons = ({ text, icon, classes, textCol, onClick, iconComp }) => {
+const Buttons = ({
+  text,
+  icon,
+  classes,
+  textCol,
+  onClick,
+  iconComp,
+  textSize,
+}) => {
   return (
     <div
       className={
@@ -23,7 +31,7 @@ const Buttons = ({ text, icon, classes, textCol, onClick, iconComp }) => {
         <h1
           className={`bg-transparent outline-none placeholder:text-white ${
             textCol || 'text-white'
-          } text-lg`}
+          } text-${textSize || 'lg'}`}
         >
           {text || 'Button'}
         </h1>

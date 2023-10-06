@@ -21,13 +21,18 @@ function App() {
       },
       transport: { title: 'Transport', items: [] },
     },
+    currentDay: 1,
+    prevPlanet: 'earth',
+    currentPlanet: 'mars',
   });
+  const [refresh, setRefresh] = useState(false);
 
   return (
     <ThemeContext.Provider
       value={{
         user: user,
         setUser: setUser,
+        setRefresh: setRefresh,
       }}
     >
       <main className='h-auto w-full'>

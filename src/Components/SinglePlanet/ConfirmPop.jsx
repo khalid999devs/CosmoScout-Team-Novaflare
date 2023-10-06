@@ -1,9 +1,19 @@
 import React from 'react';
+import Tile from '../Planets/Tile';
 
-const ConfirmPop = ({ setConfirmPop }) => {
+const ConfirmPop = ({ setConfirmPop, planet: { name, id } }) => {
   return (
     <div className='p-2 fixed bottom-0 left-0 w-full h-screen bg-opacity-60 backdrop-filter backdrop-blur-lg flex flex-col justify-center items-center z-10 gap-6'>
-      <div className='flex flex-col gap-4'>tile</div>
+      <div className='flex flex-row gap-12 relative'>
+        <div
+          className='h-[3px] w-[50px] bg-white absolute top-[50%] left-[50%] '
+          style={{
+            transform: 'translate(-50%,-50%)',
+          }}
+        ></div>
+        <Tile name={name} id={id} noId={true} />
+        <Tile name={'spotName'} noImg={true} />
+      </div>
       <h1 className='text-4xl text-white'>Shall We Confirm?</h1>
       <div className='flex flex-row gap-3'>
         <button

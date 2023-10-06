@@ -10,6 +10,7 @@ import Planets from './Pages/Planets.jsx';
 import SinglePlanet from './Pages/SinglePlanet.jsx';
 import SinglePlanetScape from './Pages/SinglePlanetScape.jsx';
 import Itinerary from './Pages/Itinerary.jsx';
+import SingleMoon from './Pages/SingleMoon.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/planets/:planetId',
         element: <SinglePlanet />,
+      },
+      {
+        path: '/moons/:moonId',
+        element: <SingleMoon />,
       },
       {
         path: '/scapes/:planetId',
