@@ -3,11 +3,13 @@ import Info from '../Components/SolarScapes/Info';
 import { data } from '../assets/planetInfo';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { ImLocation } from 'react-icons/im';
-import { CgMoreR } from 'react-icons/cg';
+import { CgArrowLeft, CgMoreR } from 'react-icons/cg';
 import { RiGalleryFill } from 'react-icons/ri';
+import { useNavigate } from 'react-router-dom';
 
 const SinglePlanetScape = ({ planetId = 'mars' }) => {
   const targetPlanet = data.find((single) => single.value === planetId);
+  const navigate = useNavigate();
 
   const { name, scapes, threeImg, color, highlightColor } = targetPlanet;
 
@@ -82,10 +84,13 @@ const SinglePlanetScape = ({ planetId = 'mars' }) => {
 
       <div className='grid grid-cols-2 max-w-[300px] w-[100%] gap-1 absolute bottom-[17%] right-[17%]'>
         <Buttons
-          text={'About Mars'}
+          text={'Back to 3D View'}
           textSize={'xs'}
-          iconComp={<AiOutlineInfoCircle />}
-          classes={'w-full'}
+          iconComp={<CgArrowLeft />}
+          classes={'w-full '}
+          onClick={() => {
+            navigate('/planets/mars');
+          }}
         />
         <Buttons
           text={'Find Mineral'}
