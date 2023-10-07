@@ -6,6 +6,7 @@ import { ImLocation } from 'react-icons/im';
 import { CgArrowLeft, CgMoreR } from 'react-icons/cg';
 import { RiGalleryFill } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
+import ScapeNav from '../Components/SolarScapes/scapeNav';
 
 const SinglePlanetScape = ({ planetId = 'mars' }) => {
   const targetPlanet = data.find((single) => single.value === planetId);
@@ -21,7 +22,7 @@ const SinglePlanetScape = ({ planetId = 'mars' }) => {
           position={'right'}
           color={color}
           highlight={highlightColor}
-          classes={'top-[12%] left-[27%]'}
+          classes={'top-[10%] left-[13%]'}
         />
       )}
 
@@ -31,7 +32,7 @@ const SinglePlanetScape = ({ planetId = 'mars' }) => {
           position={'left'}
           color={color}
           highlight={highlightColor}
-          classes={'top-[12%] left-[58%]'}
+          classes={'top-[10%] left-[62%]'}
         />
       )}
 
@@ -41,7 +42,7 @@ const SinglePlanetScape = ({ planetId = 'mars' }) => {
           position={'right'}
           color={color}
           highlight={highlightColor}
-          classes={'top-[32%] left-[20%]'}
+          classes={'top-[32%] left-[8%]'}
         />
       )}
 
@@ -51,7 +52,7 @@ const SinglePlanetScape = ({ planetId = 'mars' }) => {
           position={'left'}
           color={color}
           highlight={highlightColor}
-          classes={'top-[32%] left-[65%]'}
+          classes={'top-[40%] left-[65%]'}
         />
       )}
 
@@ -61,7 +62,7 @@ const SinglePlanetScape = ({ planetId = 'mars' }) => {
           position={'right'}
           color={color}
           highlight={highlightColor}
-          classes={'top-[75%] left-[25%]'}
+          classes={'top-[70%] left-[10%]'}
         />
       )}
       <div
@@ -99,7 +100,7 @@ const SinglePlanetScape = ({ planetId = 'mars' }) => {
           classes={'w-full'}
         />
         <Buttons
-          text={'More Facts'}
+          text={'Missions'}
           textSize={'xs'}
           iconComp={<CgMoreR />}
           classes={'w-full'}
@@ -111,6 +112,7 @@ const SinglePlanetScape = ({ planetId = 'mars' }) => {
           classes={'w-full'}
         />
       </div>
+      <ScapeNav />
     </div>
   );
 };

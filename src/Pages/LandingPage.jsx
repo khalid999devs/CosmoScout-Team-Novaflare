@@ -3,6 +3,7 @@ import Logo from '../Components/LandingPage/Logo';
 import PlanetBg from '../Components/LandingPage/PlanetBg';
 import SearchBar from '../Components/LandingPage/SearchBar';
 import SolarScapes from '../Components/LandingPage/SolarScapes';
+import { SolarScapes as ScapesPage } from './SolarScapes';
 import LoginButton from '../Components/LandingPage/LoginButton';
 import RightText from '../Components/LandingPage/RightText';
 
@@ -32,6 +33,8 @@ const LandingPage = () => {
           <SearchBar />
         </div>
       </div>
+
+      <ScapesPage />
     </div>
   );
 };

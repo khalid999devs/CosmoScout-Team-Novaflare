@@ -7,17 +7,16 @@ import MoonsPanel from '../Components/SinglePlanet/MoonsPanel';
 import ControlSphere from '../Components/SinglePlanet/ControlSphere';
 import Spot from '../Components/SinglePlanet/Spot';
 import ConfirmPop from '../Components/SinglePlanet/ConfirmPop';
+import { data } from '../assets/planetInfo';
 
 const SinglePlanet = () => {
   const { planetId } = useParams();
   const [popUp, setPopUp] = useState(false);
   const [confirmPop, setConfirmPop] = useState(false);
-
-  const [planetInfo, setPlanetInfo] = useState({
-    name: 'Mars',
-    moons: ['Phobos', 'Deimos'],
-    type: 'planet',
-  });
+  const [planetInfo, setPlanetInfo] = useState(
+    data.find((single) => single.value === planetId) || {}
+  );
+  const [targetSpot, setTargetSpot] = useState('');
 
   return (
     <div className='relative'>
@@ -32,11 +31,23 @@ const SinglePlanet = () => {
         <TitleButton planetInfo={planetInfo} planetID={planetId} />
         <MoonsPanel planetInfo={planetInfo} />
 
-        <ControlSphere setPopUp={setPopUp}></ControlSphere>
+        <ControlSphere
+          setPopUp={setPopUp}
+          setPlanetInfo={setPlanetInfo}
+          details={planetInfo}
+          setTargetSpot={setTargetSpot}
+        ></ControlSphere>
       </div>
-      {popUp && <Spot setPopUp={setPopUp} setConfirmPop={setConfirmPop} />}
+      {popUp && (
+        <Spot
+          details={planetInfo.spots.find((spot) => spot.value === targetSpot)}
+          setPopUp={setPopUp}
+          setConfirmPop={setConfirmPop}
+        />
+      )}
       {confirmPop && (
         <ConfirmPop
+          details={planetInfo.spots.find((spot) => spot.value === targetSpot)}
           setConfirmPop={setConfirmPop}
           planet={{ name: planetInfo.name, id: planetId }}
         />

@@ -6,6 +6,7 @@ const ThemeContext = createContext('');
 function App() {
   const [user, setUser] = useState({
     name: 'Ana Rose',
+    userName: 'anaRose',
     itinerary: {
       location: {
         title: 'Location',
@@ -21,7 +22,7 @@ function App() {
       },
       transport: { title: 'Transport', items: [] },
     },
-    currentDay: 1,
+    currentDay: 0,
     prevPlanet: 'earth',
     currentPlanet: 'mars',
   });

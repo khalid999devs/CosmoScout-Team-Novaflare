@@ -6,21 +6,14 @@ import fragmentShader from '../../shaders/fragment.glsl';
 import gsap from 'gsap';
 import { useNavigate } from 'react-router-dom';
 
-const ControlSphere = ({ setPopUp }) => {
+const ControlSphere = ({ setPopUp, details, setTargetSpot }) => {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const animationFrameID = useRef(null);
   const popUpRef = useRef(null);
   const navigate = useNavigate();
 
-  const spots = [
-    {
-      name: 'Olympus Mons',
-      value: 'olympusMons',
-      position: { lat: 23, lng: 120 },
-      img: 'https://media.sciencephoto.com/image/r3500195/800wm',
-    },
-  ];
+  const spots = details.spots || [];
 
   useEffect(() => {
     if (containerRef.current && canvasRef.current && popUpRef.current) {
@@ -45,7 +38,7 @@ const ControlSphere = ({ setPopUp }) => {
         containerRef.current.offsetHeight
       );
 
-      camera.position.z = 10;
+      camera.position.z = 9.5;
 
       // Create a rotating planet
       const sphere = new THREE.Mesh(
@@ -65,6 +58,8 @@ const ControlSphere = ({ setPopUp }) => {
 
       // Create orbit controls
       const controls = new OrbitControls(camera, renderer.domElement);
+      controls.minDistance = 6;
+      controls.maxDistance = 20;
 
       const group = new THREE.Group();
       group.add(sphere);
@@ -98,7 +93,7 @@ const ControlSphere = ({ setPopUp }) => {
           const lng = spot.position.lng;
 
           const mark = new THREE.Mesh(
-            new THREE.BoxGeometry(0.9, 0.6, 0.1),
+            new THREE.BoxGeometry(0.9, 0.6, 0.2),
             new THREE.MeshBasicMaterial({
               color: '#298ebd',
             })
@@ -138,6 +133,7 @@ const ControlSphere = ({ setPopUp }) => {
           mark.name = spot.name;
           mark.value = spot.value;
           mark.img = spot.img;
+
           mark.type = 'mark';
         });
       }
@@ -206,7 +202,7 @@ const ControlSphere = ({ setPopUp }) => {
 
       const clickEvent = (e) => {
         if (IsData.state) {
-          console.log('clicked');
+          setTargetSpot(IsData.country);
           setPopUp(true);
           // making the click function to the specifiq point work
         }
@@ -232,7 +228,7 @@ const ControlSphere = ({ setPopUp }) => {
         ref={popUpRef}
         className='fixed top-0 left-0 p-2 bg-opacity-60 backdrop-filter backdrop-blur-lg bg-primary-darkDash w-[150px]'
       >
-        <h1 className='text-white text-md font-medium mb-2' id='title'>
+        <h1 className='text-white text-sm font-medium mb-2' id='title'>
           text
         </h1>
         <img src='' id='img' alt='' />

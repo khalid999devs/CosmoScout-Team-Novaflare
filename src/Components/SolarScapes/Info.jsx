@@ -3,7 +3,7 @@ import React from 'react';
 const Info = ({ position, item, color, classes, highlight }) => {
   return (
     <div
-      className={`absolute flex flex-col ${
+      className={`absolute max-w-[350px] flex flex-col ${
         position === 'right'
           ? 'justify-end items-end'
           : 'justify-start items-start'

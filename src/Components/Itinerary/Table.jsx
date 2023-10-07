@@ -6,7 +6,7 @@ const Table = () => {
     user: { itinerary },
     setUser,
   } = contextConsumer();
-  console.log(itinerary);
+
   const rows = itinerary ? Object.keys(itinerary) : [];
 
   return (

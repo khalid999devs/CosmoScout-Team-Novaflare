@@ -1,6 +1,6 @@
 import { FiSettings } from 'react-icons/fi';
 
-const Avatar = ({ name = 'Anne May' }) => {
+const Avatar = ({ user: { name = 'Anne May' } }) => {
   return (
     <div className='flex flex-row max-w-80 w-full max-h-40 bg-primary-dashBoard'>
       <div className='w-40'>

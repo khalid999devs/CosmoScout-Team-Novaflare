@@ -8,24 +8,27 @@ import ControlSphere from '../Components/SinglePlanet/ControlSphere';
 import Spot from '../Components/SinglePlanet/Spot';
 import ConfirmPop from '../Components/SinglePlanet/ConfirmPop';
 import { contextConsumer } from '../App';
+import { data } from '../assets/planetInfo';
 
 const SingleMoon = () => {
   let { moonId } = useParams();
   const location = useLocation();
-  const [planetInfo, setPlanetInfo] = useState({
-    name: 'Mars',
-    value: 'mars',
-    moons: ['Phobos', 'Deimos'],
-    type: 'planet',
-  });
-  const [moonInfo, setMoonInfo] = useState({
-    name: moonId,
-    type: 'moon',
-  });
+  const [targetSpot, setTargetSpot] = useState('');
+
+  const [planetInfo, setPlanetInfo] = useState(
+    data.find((single) => {
+      const targetMoon = single.moons.filter((moon) => moon.value === moonId);
+      if (targetMoon.length > 0) return single;
+    }) || {}
+  );
+
+  const [moonInfo, setMoonInfo] = useState(
+    planetInfo.moons.find((moon) => moon.value === moonId) || {}
+  );
 
   useEffect(() => {
     setMoonInfo((moonInfo) => {
-      return { ...moonInfo, name: moonId };
+      return planetInfo.moons.find((moon) => moon.value === moonId);
     });
   }, [location.pathname]);
 
@@ -50,16 +53,27 @@ const SingleMoon = () => {
         />
         <MoonsPanel
           planetInfo={planetInfo}
-          moonInfo={moonInfo}
+          moonInfo={moonInfo.value}
           currentMoon={moonId}
         />
 
-        <ControlSphere setPopUp={setPopUp}></ControlSphere>
+        <ControlSphere
+          setPopUp={setPopUp}
+          details={moonInfo}
+          setTargetSpot={targetSpot}
+        ></ControlSphere>
       </div>
-      {popUp && <Spot setPopUp={setPopUp} setConfirmPop={setConfirmPop} />}
+      {popUp && (
+        <Spot
+          setPopUp={setPopUp}
+          details={moonInfo}
+          setConfirmPop={setConfirmPop}
+        />
+      )}
       {confirmPop && (
         <ConfirmPop
           setConfirmPop={setConfirmPop}
+          details={moonInfo}
           planet={{ name: moonId, id: moonId }}
         />
       )}

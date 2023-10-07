@@ -1,7 +1,8 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Tile from '../Planets/Tile';
 
-const ConfirmPop = ({ setConfirmPop, planet: { name, id } }) => {
+const ConfirmPop = ({ setConfirmPop, planet: { name, id }, details }) => {
+  const navigate = useNavigate();
   return (
     <div className='p-2 fixed bottom-0 left-0 w-full h-screen bg-opacity-60 backdrop-filter backdrop-blur-lg flex flex-col justify-center items-center z-10 gap-6'>
       <div className='flex flex-row gap-12 relative'>
@@ -12,13 +13,16 @@ const ConfirmPop = ({ setConfirmPop, planet: { name, id } }) => {
           }}
         ></div>
         <Tile name={name} id={id} noId={true} />
-        <Tile name={'spotName'} noImg={true} />
+        <Tile name={details.name || 'spotName'} noImg={true} />
       </div>
       <h1 className='text-4xl text-white'>Shall We Confirm?</h1>
       <div className='flex flex-row gap-3'>
         <button
           className='py-1 px-10 bg-white w-fit text-lg'
-          onClick={(_) => setConfirmPop(false)}
+          onClick={(_) => {
+            setConfirmPop(false);
+            navigate('/itinerary');
+          }}
         >
           yes
         </button>

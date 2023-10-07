@@ -9,8 +9,10 @@ import TripPack from '../Components/Dashboard/TripPack';
 import Search from '../Components/Dashboard/Search';
 import Notify from '../Components/Dashboard/Notify';
 import Bg from '../Components/Bg';
+import { contextConsumer } from '../App';
 
 const Dashboard = () => {
+  const { user } = contextConsumer();
   return (
     <div className='relative'>
       <Bg />
@@ -64,7 +66,7 @@ const Dashboard = () => {
 
           <div className='flex flex-col gap-4 pt-12'>
             <div className='flex flex-row justify-end pl-8'>
-              <Avatar />
+              <Avatar user={user} />
             </div>
             <div className='flex flex-row gap-4'>
               <Food />
